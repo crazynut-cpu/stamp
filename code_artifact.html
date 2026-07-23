@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>김서린의 칭찬도장판 🌼🐰</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome for extra visual icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts: Gaegu & Jua for child-friendly cute aesthetic -->
+    <link href="https://fonts.googleapis.com/css2?family=Gaegu:wght@400;700&family=Jua&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dandelion: '#FDE047',
+                        'dandelion-dark': '#EAB308',
+                        'dandelion-light': '#FEF08A',
+                        'soft-green': '#DCFCE7',
+                        'rabbit-pink': '#FFD1DC'
+                    },
+                    fontFamily: {
+                        jua: ['Jua', 'sans-serif'],
+                        gaegu: ['Gaegu', 'cursive']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Jua', sans-serif;
+            background: linear-gradient(135deg, #FEF9C3 0%, #ECFDF5 50%, #FEF08A 100%);
+            min-height: 100vh;
+            user-select: none;
+        }
+
+        /* Dandelion Seeds Floating Animation */
+        .seed {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            pointer-events: none;
+            animation: floatSeed 12s infinite linear;
+        }
+
+        @keyframes floatSeed {
+            0% {
+                transform: translateY(100vh) translateX(0) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 0.8;
+            }
+            90% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) translateX(100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Stamp Pop Animation */
+        .stamp-pop {
+            animation: stampAnimation 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes stampAnimation {
+            0% { transform: scale(2) rotate(-15deg); opacity: 0; }
+            100% { transform: scale(1) rotate(0deg); opacity: 1; }
+        }
+
+        /* Print styles for offline paper use */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+            body {
+                background: white !important;
+                color: black !important;
+            }
+            .print-card {
+                box-shadow: none !important;
+                border: 2px solid #e5e7eb !important;
+            }
+        }
+    </style>
+</head>
+<body class="relative overflow-x-hidden text-gray-800 pb-12">
+
+    <!-- Floating seeds container -->
+    <div id="seeds-container" class="fixed inset-0 pointer-events-none z-0 overflow-hidden"></div>
+
+    <!-- Main Container -->
+    <div class="relative z-10 max-w-4xl mx-auto px-4 py-6 sm:py-10">
+        
+        <!-- Header Section -->
+        <header class="text-center mb-6">
+            <div class="inline-flex items-center gap-2 bg-yellow-200/80 px-4 py-1.5 rounded-full border border-yellow-400 text-yellow-800 text-sm sm:text-base font-bold shadow-sm mb-3">
+                <span>🌼 칭찬은 서린이를 더 피어나게 해요!</span>
+            </div>
+            
+            <h1 class="text-3xl sm:text-5xl font-extrabold text-amber-900 tracking-wide drop-shadow-sm flex items-center justify-center gap-3">
+                <span class="inline-block animate-bounce">🌼</span>
+                <span>김서린의 칭찬도장판</span>
+                <span class="inline-block animate-bounce" style="animation-delay: 0.2s;">🐰</span>
+            </h1>
+        </header>
+
+        <!-- Cute Bunny Character Speech Card -->
+        <div class="bg-white/90 backdrop-blur-sm rounded-3xl p-4 sm:p-6 shadow-xl border-4 border-yellow-300 mb-8 flex flex-col sm:flex-row items-center gap-4 sm:gap-6 print-card">
+            
+            <!-- SVG Cute Bunny Mascot -->
+            <div class="relative w-28 h-28 sm:w-36 sm:h-36 flex-shrink-0">
+                <svg viewBox="0 0 200 200" class="w-full h-full drop-shadow-md">
+                    <!-- Ears -->
+                    <ellipse cx="75" cy="45" rx="16" ry="40" fill="#FFFFFF" stroke="#F472B6" stroke-width="4" transform="rotate(-10 75 45)" />
+                    <ellipse cx="75" cy="45" rx="9" ry="28" fill="#FBCFE8" transform="rotate(-10 75 45)" />
+                    
+                    <ellipse cx="125" cy="45" rx="16" ry="40" fill="#FFFFFF" stroke="#F472B6" stroke-width="4" transform="rotate(10 125 45)" />
+                    <ellipse cx="125" cy="45" rx="9" ry="28" fill="#FBCFE8" transform="rotate(10 125 45)" />
+                    
+                    <!-- Head -->
+                    <circle cx="100" cy="115" r="55" fill="#FFFFFF" stroke="#F472B6" stroke-width="4" />
+                    
+                    <!-- Dandelion Flower on Ear -->
+                    <g transform="translate(125, 65)">
+                        <circle cx="0" cy="0" r="14" fill="#FACC15" />
+                        <circle cx="0" cy="0" r="10" fill="#FEF08A" />
+                        <!-- Petals -->
+                        <path d="M -16,0 L 16,0 M 0,-16 L 0,16 M -11,-11 L 11,11 M -11,11 L 11,-11" stroke="#EAB308" stroke-width="3" />
+                    </g>
+
+                    <!-- Eyes -->
+                    <ellipse cx="80" cy="110" rx="6" ry="8" fill="#374151" />
+                    <ellipse cx="120" cy="110" rx="6" ry="8" fill="#374151" />
+                    <circle cx="82" cy="108" r="2.5" fill="#FFFFFF" />
+                    <circle cx="122" cy="108" r="2.5" fill="#FFFFFF" />
+                    
+                    <!-- Cheeks -->
+                    <ellipse cx="70" cy="122" rx="9" ry="6" fill="#FDA4AF" opacity="0.8" />
+                    <ellipse cx="130" cy="122" rx="9" ry="6" fill="#FDA4AF" opacity="0.8" />
+                    
+                    <!-- Nose & Mouth -->
+                    <polygon points="100,118 96,123 104,123" fill="#F472B6" />
+                    <path d="M 94,126 Q 100,132 100,126 Q 100,132 106,126" fill="none" stroke="#374151" stroke-width="3" stroke-linecap="round" />
+
+                    <!-- Hands holding dandelion -->
+                    <circle cx="70" cy="155" r="10" fill="#FFFFFF" stroke="#F472B6" stroke-width="3" />
+                    <circle cx="130" cy="155" r="10" fill="#FFFFFF" stroke="#F472B6" stroke-width="3" />
+                </svg>
+            </div>
+
+            <!-- Speech Bubble and Progress -->
+            <div class="flex-1 text-center sm:text-left w-full">
+                <div class="relative bg-amber-50 rounded-2xl p-4 border-2 border-amber-200 mb-3 shadow-inner">
+                    <p id="bunny-dialogue" class="text-lg sm:text-xl font-bold text-amber-900">
+                        "안녕 서린아! 🐰 오늘 어떤 멋진 일을 했니? 도장을 찍어줘!"
+                    </p>
+                </div>
+
+                <!-- Progress Bar -->
+                <div>
+                    <div class="flex justify-between items-center text-sm sm:text-base font-bold text-amber-900 mb-1">
+                        <span>도장 모으기 진행 상황</span>
+                        <span id="progress-text" class="text-amber-600 font-extrabold">0 / 30 개</span>
+                    </div>
+                    <div class="w-full h-5 bg-amber-100 rounded-full overflow-hidden border-2 border-amber-300 p-0.5 shadow-inner">
+                        <div id="progress-bar" class="h-full bg-gradient-to-r from-yellow-400 to-amber-500 rounded-full transition-all duration-500" style="width: 0%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Toolbar / Stamp Selector (No-print) -->
+        <div class="no-print bg-white/80 backdrop-blur-sm rounded-2xl p-4 shadow-md border-2 border-yellow-200 mb-6 flex flex-wrap items-center justify-between gap-4">
+            <div class="flex items-center gap-2 flex-wrap">
+                <span class="text-sm font-bold text-amber-900">도장 모양 선택:</span>
+                <div class="flex gap-2">
+                    <button onclick="selectStamp('rabbit')" id="stamp-btn-rabbit" class="stamp-select-btn active px-3 py-1.5 rounded-xl border-2 border-pink-400 bg-pink-100 text-pink-700 text-sm font-bold flex items-center gap-1 shadow-sm transition transform hover:scale-105">
+                        🐰 토끼
+                    </button>
+                    <button onclick="selectStamp('dandelion')" id="stamp-btn-dandelion" class="stamp-select-btn px-3 py-1.5 rounded-xl border-2 border-yellow-400 bg-yellow-50 text-yellow-700 text-sm font-bold flex items-center gap-1 shadow-sm transition transform hover:scale-105">
+                        🌼 민들레
+                    </button>
+                    <button onclick="selectStamp('star')" id="stamp-btn-star" class="stamp-select-btn px-3 py-1.5 rounded-xl border-2 border-amber-400 bg-amber-50 text-amber-700 text-sm font-bold flex items-center gap-1 shadow-sm transition transform hover:scale-105">
+                        ⭐ 참잘했어요
+                    </button>
+                    <button onclick="selectStamp('heart')" id="stamp-btn-heart" class="stamp-select-btn px-3 py-1.5 rounded-xl border-2 border-red-400 bg-red-50 text-red-700 text-sm font-bold flex items-center gap-1 shadow-sm transition transform hover:scale-105">
+                        ❤️ 하트
+                    </button>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-2">
+                <button onclick="toggleSound()" id="sound-btn" class="px-3 py-1.5 rounded-xl bg-amber-100 text-amber-800 text-sm font-bold border border-amber-300 hover:bg-amber-200 transition">
+                    🔊 소리 켜짐
+                </button>
+                <button onclick="window.print()" class="px-3 py-1.5 rounded-xl bg-emerald-500 text-white text-sm font-bold hover:bg-emerald-600 shadow-sm transition flex items-center gap-1">
+                    <i class="fas fa-print"></i> 인쇄하기
+                </button>
+                <button onclick="resetBoard()" class="px-3 py-1.5 rounded-xl bg-gray-200 text-gray-700 text-sm font-bold hover:bg-gray-300 transition">
+                    <i class="fas fa-rotate-left"></i> 초기화
+                </button>
+            </div>
+        </div>
+
+        <!-- 30 Stamp Grid Board -->
+        <main class="bg-white/90 backdrop-blur-md rounded-3xl p-4 sm:p-8 shadow-2xl border-4 border-yellow-300 mb-8 print-card">
+            <div id="stamp-grid" class="grid grid-cols-5 sm:grid-cols-6 gap-3 sm:gap-4">
+                <!-- 30 Grid items generated by JS -->
+            </div>
+        </main>
+
+        <!-- Reward Promise Card -->
+        <div class="bg-gradient-to-r from-amber-100 via-yellow-100 to-amber-100 rounded-3xl p-6 shadow-xl border-4 border-amber-300 print-card">
+            <div class="flex items-center gap-3 mb-2">
+                <span class="text-3xl">🎁</span>
+                <h3 class="text-xl sm:text-2xl font-bold text-amber-900">30개를 모두 모으면 받을 약속/선물!</h3>
+            </div>
+            <p class="text-xs sm:text-sm text-amber-800 mb-3 no-print">아래 상자를 클릭해서 서린이와 한 약속(선물)을 적어주세요.</p>
+            <textarea id="reward-text" rows="2" class="w-full bg-white/80 rounded-2xl p-3 border-2 border-amber-300 text-amber-950 font-bold text-lg focus:outline-none focus:ring-2 focus:ring-yellow-400 resize-none shadow-inner" placeholder="예: 서린이가 가장 좋아하는 놀이공원 놀러가기! 🎡"></textarea>
+        </div>
+
+        <footer class="text-center mt-8 text-amber-800/80 text-sm font-bold no-print">
+            <p>🌼 8살 서린이의 꿈과 칭찬을 응원합니다 🐰</p>
+        </footer>
+    </div>
+
+    <!-- Canvas for Confetti Fireworks -->
+    <canvas id="confetti-canvas" class="fixed inset-0 pointer-events-none z-50"></canvas>
+
+    <!-- JS Logic -->
+    <script>
+        // State Management
+        const TOTAL_STAMPS = 30;
+        let stampState = Array(TOTAL_STAMPS).fill(null); // stores stamp icon types or null
+        let currentStampType = 'rabbit';
+        let soundEnabled = true;
+
+        // Sound Synthesis using Web Audio API
+        const AudioContext = window.AudioContext || window.webkitAudioContext;
+        let audioCtx = null;
+
+        function playStampSound() {
+            if (!soundEnabled) return;
+            try {
+                if (!audioCtx) audioCtx = new AudioContext();
+                const osc = audioCtx.createOscillator();
+                const gain = audioCtx.createGain();
+                
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(400, audioCtx.currentTime);
+                osc.frequency.exponentialRampToValueAtTime(1200, audioCtx.currentTime + 0.1);
+                
+                gain.gain.setValueAtTime(0.3, audioCtx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + 0.15);
+                
+                osc.connect(gain);
+                gain.connect(audioCtx.destination);
+                
+                osc.start();
+                osc.stop(audioCtx.currentTime + 0.15);
+            } catch (e) {
+                console.log("Audio play error", e);
+            }
+        }
+
+        function playCompletionFanfare() {
+            if (!soundEnabled) return;
+            try {
+                if (!audioCtx) audioCtx = new AudioContext();
+                const notes = [523.25, 659.25, 783.99, 1046.50]; // C5, E5, G5, C6
+                notes.forEach((freq, idx) => {
+                    const osc = audioCtx.createOscillator();
+                    const gain = audioCtx.createGain();
+                    osc.type = 'triangle';
+                    osc.frequency.value = freq;
+                    gain.gain.setValueAtTime(0, audioCtx.currentTime + idx * 0.12);
+                    gain.gain.linearRampToValueAtTime(0.3, audioCtx.currentTime + idx * 0.12 + 0.05);
+                    gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + idx * 0.12 + 0.4);
+                    
+                    osc.connect(gain);
+                    gain.connect(audioCtx.destination);
+                    
+                    osc.start(audioCtx.currentTime + idx * 0.12);
+                    osc.stop(audioCtx.currentTime + idx * 0.12 + 0.45);
+                });
+            } catch (e) {}
+        }
+
+        // Floating Dandelion Seeds Background Generator
+        function createSeeds() {
+            const container = document.getElementById('seeds-container');
+            const seedCount = 15;
+            for (let i = 0; i < seedCount; i++) {
+                const seed = document.createElement('div');
+                seed.className = 'seed';
+                const size = Math.random() * 8 + 6;
+                seed.style.width = `${size}px`;
+                seed.style.height = `${size}px`;
+                seed.style.left = `${Math.random() * 100}vw`;
+                seed.style.animationDelay = `${Math.random() * 10}s`;
+                seed.style.animationDuration = `${8 + Math.random() * 8}s`;
+                container.appendChild(seed);
+            }
+        }
+
+        // Stamp Design Icons mapping
+        const STAMP_DESIGNS = {
+            rabbit: {
+                html: `<div class="stamp-pop text-pink-500 flex flex-col items-center justify-center">
+                        <span class="text-3xl sm:text-4xl drop-shadow">🐰</span>
+                       </div>`,
+                bg: 'bg-pink-100/90 border-pink-400'
+            },
+            dandelion: {
+                html: `<div class="stamp-pop text-yellow-600 flex flex-col items-center justify-center">
+                        <span class="text-3xl sm:text-4xl drop-shadow">🌼</span>
+                       </div>`,
+                bg: 'bg-yellow-100/90 border-yellow-400'
+            },
+            star: {
+                html: `<div class="stamp-pop text-amber-500 flex flex-col items-center justify-center">
+                        <span class="text-3xl sm:text-4xl drop-shadow">⭐</span>
+                       </div>`,
+                bg: 'bg-amber-100/90 border-amber-400'
+            },
+            heart: {
+                html: `<div class="stamp-pop text-red-500 flex flex-col items-center justify-center">
+                        <span class="text-3xl sm:text-4xl drop-shadow">❤️</span>
+                       </div>`,
+                bg: 'bg-red-100/90 border-red-400'
+            }
+        };
+
+        // Render Stamp Grid
+        function renderGrid() {
+            const grid = document.getElementById('stamp-grid');
+            grid.innerHTML = '';
+
+            for (let i = 0; i < TOTAL_STAMPS; i++) {
+                const isStamped = stampState[i] !== null;
+                const cell = document.createElement('button');
+                
+                // Base classes
+                cell.className = `relative aspect-square rounded-2xl sm:rounded-3xl border-3 flex flex-col items-center justify-center transition-all duration-200 transform hover:scale-105 active:scale-95 shadow-md ${
+                    isStamped 
+                        ? STAMP_DESIGNS[stampState[i]].bg + ' border-2' 
+                        : 'bg-amber-50/60 border-dashed border-amber-300 hover:bg-yellow-100/80 hover:border-amber-400'
+                }`;
+
+                if (isStamped) {
+                    cell.innerHTML = `
+                        <span class="absolute top-1 left-2 text-xs font-bold text-gray-400/80">${i + 1}</span>
+                        ${STAMP_DESIGNS[stampState[i]].html}
+                    `;
+                } else {
+                    cell.innerHTML = `
+                        <span class="text-xl sm:text-2xl font-bold text-amber-800/40">${i + 1}</span>
+                        <span class="text-xs text-amber-700/30 font-bold mt-1">도장</span>
+                    `;
+                }
+
+                cell.onclick = () => toggleStamp(i);
+                grid.appendChild(cell);
+            }
+
+            updateProgress();
+        }
+
+        // Toggle Stamp State on Click
+        function toggleStamp(index) {
+            if (stampState[index] === null) {
+                stampState[index] = currentStampType;
+                playStampSound();
+            } else {
+                stampState[index] = null;
+            }
+
+            saveData();
+            renderGrid();
+        }
+
+        // Select Stamp Icon Type
+        function selectStamp(type) {
+            currentStampType = type;
+            document.querySelectorAll('.stamp-select-btn').forEach(btn => {
+                btn.classList.remove('active', 'ring-2', 'ring-offset-1', 'ring-amber-500');
+            });
+            const selectedBtn = document.getElementById(`stamp-btn-${type}`);
+            if (selectedBtn) {
+                selectedBtn.classList.add('ring-2', 'ring-offset-1', 'ring-amber-500');
+            }
+        }
+
+        // Update Progress and Bunny Speech
+        function updateProgress() {
+            const count = stampState.filter(item => item !== null).length;
+            const percentage = (count / TOTAL_STAMPS) * 100;
+
+            document.getElementById('progress-text').innerText = `${count} / ${TOTAL_STAMPS} 개`;
+            document.getElementById('progress-bar').style.width = `${percentage}%`;
+
+            // Bunny Dialogue updates
+            const dialogue = document.getElementById('bunny-dialogue');
+            if (count === 0) {
+                dialogue.innerText = `"안녕 서린아! 🐰 오늘 어떤 멋진 일을 했니? 도장을 찍어줘!"`;
+            } else if (count > 0 && count <= 5) {
+                dialogue.innerText = `"우와, 서린이 참 잘했어! 차근차근 모아보자! 🌼"`;
+            } else if (count > 5 && count <= 15) {
+                dialogue.innerText = `"벌써 ${count}개나 찍었어! 서린이 정말 멋지다! ✨"`;
+            } else if (count > 15 && count <= 25) {
+                dialogue.innerText = `"절반 넘게 모았어! 조금만 더 하면 약속한 선물이 가까워져! 🎁"`;
+            } else if (count > 25 && count < 30) {
+                dialogue.innerText = `"와아! 도장판 완성까지 얼마 안 남았어! 힘내 서린아! 🔥"`;
+            } else if (count === 30) {
+                dialogue.innerText = `"축하해 서린아! 30개 도장을 모두 모았어!! 최고야!! 🎉🎁🥳"`;
+                triggerConfetti();
+                playCompletionFanfare();
+            }
+        }
+
+        // Sound Toggle
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            const btn = document.getElementById('sound-btn');
+            btn.innerText = soundEnabled ? '🔊 소리 켜짐' : '🔇 소리 끔';
+        }
+
+        // Reset Board
+        function resetBoard() {
+            if (confirm('서린이의 도장판을 정말 다시 1번부터 시작할까요?')) {
+                stampState = Array(TOTAL_STAMPS).fill(null);
+                saveData();
+                renderGrid();
+            }
+        }
+
+        // Save & Load LocalStorage
+        function saveData() {
+            localStorage.setItem('seorin_stamp_state', JSON.stringify(stampState));
+            localStorage.setItem('seorin_reward_text', document.getElementById('reward-text').value);
+        }
+
+        function loadData() {
+            const savedState = localStorage.getItem('seorin_stamp_state');
+            const savedReward = localStorage.getItem('seorin_reward_text');
+
+            if (savedState) {
+                try {
+                    stampState = JSON.parse(savedState);
+                } catch (e) {
+                    stampState = Array(TOTAL_STAMPS).fill(null);
+                }
+            }
+            if (savedReward !== null) {
+                document.getElementById('reward-text').value = savedReward;
+            } else {
+                document.getElementById('reward-text').value = "서린이가 제일 좋아하는 맛있는 음식 먹고 선물 받기! 🎁";
+            }
+        }
+
+        // Simple Confetti Cannon for 30 Stamps Complete
+        function triggerConfetti() {
+            const canvas = document.getElementById('confetti-canvas');
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            const particles = [];
+            const colors = ['#FADE4B', '#F472B6', '#6EE7B7', '#60A5FA', '#FCA5A5'];
+
+            for (let i = 0; i < 120; i++) {
+                particles.push({
+                    x: canvas.width / 2,
+                    y: canvas.height / 2,
+                    vx: (Math.random() - 0.5) * 16,
+                    vy: (Math.random() - 0.7) * 16,
+                    size: Math.random() * 8 + 4,
+                    color: colors[Math.floor(Math.random() * colors.length)],
+                    alpha: 1
+                });
+            }
+
+            let frame = 0;
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                particles.forEach(p => {
+                    p.x += p.vx;
+                    p.y += p.vy;
+                    p.vy += 0.2; // gravity
+                    p.alpha -= 0.01;
+
+                    ctx.globalAlpha = Math.max(0, p.alpha);
+                    ctx.fillStyle = p.color;
+                    ctx.beginPath();
+                    ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+                    ctx.fill();
+                });
+
+                frame++;
+                if (frame < 120) {
+                    requestAnimationFrame(animate);
+                } else {
+                    ctx.clearRect(0, 0, canvas.width, canvas.height);
+                }
+            }
+            animate();
+        }
+
+        // Initialize on window load
+        window.onload = function() {
+            createSeeds();
+            loadData();
+            selectStamp('rabbit');
+            renderGrid();
+
+            document.getElementById('reward-text').addEventListener('input', saveData);
+        };
+    </script>
+</body>
+</html>
